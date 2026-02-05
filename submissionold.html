@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ส่งงาน | การจัดการฐานข้อมูลเบื้องต้น</title>
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600&family=Kanit:wght@300;400;500&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .submission-status {
+            border-left: 5px solid;
+        }
+        .status-pending {
+            border-left-color: #f39c12;
+            background-color: rgba(243, 156, 18, 0.1);
+        }
+        .status-graded {
+            border-left-color: #27ae60;
+            background-color: rgba(39, 174, 96, 0.1);
+        }
+        .status-late {
+            border-left-color: #e74c3c;
+            background-color: rgba(231, 76, 60, 0.1);
+        }
+        .file-preview {
+            border: 1px dashed #ddd;
+            border-radius: 5px;
+            padding: 20px;
+            text-align: center;
+            background-color: #f9f9f9;
+        }
+        .file-preview img {
+            max-width: 100px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-database me-2"></i>การจัดการฐานข้อมูลเบื้องต้น
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html"><i class="fas fa-home me-1"></i> หน้าแรก</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html"><i class="fas fa-book me-1"></i> เกี่ยวกับรายวิชา</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="content.html"><i class="fas fa-file-alt me-1"></i> เนื้อหาวิชา</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="calendar.html"><i class="fas fa-calendar-alt me-1"></i> ปฏิทินเรียน</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="download.html"><i class="fas fa-download me-1"></i> ดาวน์โหลด</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="submission.html"><i class="fas fa-upload me-1"></i> ส่งงาน</a>
+                    </li>
+                    <!-- Other menu items -->
+                </ul>
+            </div>
+        </div>
+    </nav>
+    </body>
+</html>
+
+
+
+               

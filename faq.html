@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>คำถามที่พบบ่อย | การจัดการฐานข้อมูลเบื้องต้น</title>
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600&family=Kanit:wght@300;400;500&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-database me-2"></i>การจัดการฐานข้อมูลเบื้องต้น
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html"><i class="fas fa-home me-1"></i> หน้าแรก</a>
+                    </li>
+                    <!-- Other menu items -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="faq.html"><i class="fas fa-question-circle me-1"></i> FAQ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html"><i class="fas fa-user-tie me-1"></i> ผู้สอน</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h1 class="fw-bold text-primary">คำถามที่พบบ่อย</h1>
+                    <p class="lead">ปัญหาทั่วไปและวิธีการแก้ไข</p>
+                    <nav aria-label="breadcrumb" class="d-flex justify-content-center">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="index.html">หน้าแรก</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">FAQ</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- FAQ Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <!-- Search Box -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-body">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="ค้นหาคำถาม..." id="faqSearch">
+                                <button class="btn btn-primary" type="button">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Categories -->
+                    <div class="text-center mb-4">
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-outline-primary active" data-category="all">ทั้งหมด</button>
+                            <button type="button" class="btn btn-outline-primary" data-category="general">ทั่วไป</button>
+                            <button type="button" class="btn btn-outline-primary" data-category="software">ซอฟต์แวร์</button>
+                            <button type="button" class="btn btn-outline-primary" data-category="assignment">การส่งงาน</button>
+                            <button type="button" class="btn btn-outline-primary" data-category="exam">การสอบ</button>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Accordion -->
+                    <div class="accordion" id="faqAccordion">
+                        <!-- General Questions -->
+                        <div class="accordion-item" data-category="general">
+                            <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                                    <i class="fas fa-question-circle text-primary me-2"></i>จะดาวน์โหลดเอกสารประกอบการเรียนได้ที่ไหน?
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    สามารถดาวน์โหลดเอกสารประกอบการเรียนได้ที่เมนู <strong>"ดาวน์โหลด"</strong> หรือที่ <a href="download.html">หน้าดาวน์โหลดเอกสาร</a> โดยเอกสารจะแบ่งเป็นหมวดหมู่ตามบทเรียน
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item" data-category="general">
+                            <h2 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+                                    <i class="fas fa-question-circle text-primary me-2"></i>หากขาดเรียนต้องทำอย่างไร?
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <ol>
+                                        <li>ตรวจสอบเนื้อหาที่เรียนจากสไลด์การสอนในหน้าดาวน์โหลด</li>
+                                        <li>ดูวิดีโอบันทึกการสอน (หากมี)</li>
+                                        <li>ติดต่อเพื่อนร่วมชั้นเรียนเพื่อขอสรุปเนื้อหา</li>
+                                        <li>หากมีข้อสงสัยสามารถติดต่อผู้สอนผ่านช่องทางในหน้า <a href="contact.html">ติดต่อผู้สอน</a></li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Software Questions -->
+                        <div class="accordion-item" data-category="software">
+                            <h2 class="accordion-header" id="headingThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">
+                                    <i class="fas fa-question-circle text-primary me-2"></i>ต้องติดตั้งโปรแกรมอะไรบ้างสำหรับการเรียนรายวิชานี้?
+                                </button>
+                            </h2>
+                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <p>สำหรับรายวิชานี้แนะนำให้ติดตั้งโปรแกรมต่อไปนี้:</p>
+                                    <ul>
+                                        <li><strong>MySQL Community Server</strong> - ระบบจัดการฐานข้อมูล</li>
+                                        <li><strong>MySQL Workbench</strong> - เครื่องมือจัดการฐานข้อมูล MySQL</li>
+                                        <li><strong>SQLite</strong> - ระบบฐานข้อมูลแบบไฟล์</li>
+                                        <li><strong>Text Editor</strong> - เช่น Visual Studio Code, Sublime Text</li>
+                                    </ul>
+                                    <p>สามารถดาวน์โหลดโปรแกรมเหล่านี้ได้ที่หน้า <a href="download.html#software-tools">ซอฟต์แวร์และเครื่องมือ</a></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item" data-category="software">
+                            <h2 class="accordion-header" id="headingFour">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour">
+                                    <i class="fas fa-question-circle text-primary me-2"></i>ติดตั้ง MySQL ไม่สำเร็จควรทำอย่างไร?
+                                </button>
+                            </h2>
+                            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <p>หากมีปัญหาในการติดตั้ง MySQL ให้ทำตามขั้นตอนต่อไปนี้:</p>
+                                    <ol>
+                                        <li>ตรวจสอบว่าคอมพิวเตอร์ของคุณตรงกับระบบที่ต้องการหรือไม่</li>
+                                        <li>ดาวน์โหลดไฟล์ติดตั้งใหม่จากเว็บไซต์ทางการ</li>
+                                        <li>ปิดโปรแกรมแอนตี้ไวรัสชั่วคราวขณะติดตั้ง</li>
+                                        <li>ติดตั้งด้วยสิทธิ์ Administrator</li>
+                                        <li>ตรวจสอบคู่มือการติดตั้งในหน้า <a href="download.html">ดาวน์โหลด</a></li>
+                                        <li>หากยังมีปัญหา สามารถส่งรายละเอียดข้อผิดพลาดมาที่ <a href="contact.html">ผู้สอน</a></li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Assignment Questions -->
+                        <div class="accordion-item" data-category="assignment">
+                            <h2 class="accordion-header" id="headingFive">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive">
+                                    <i class="fas fa-question-circle text-primary me-2"></i>ส่งงานช้าจะมีการหักคะแนนหรือไม่?
+                                </button>
+                            </h2>
+                            <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <p>การส่งงานหลังจากกำหนดเวลาจะมีการหักคะแนนดังนี้:</p>
+                                    <ul>
+                                        <li>ส่งช้าไม่เกิน 1 สัปดาห์: หัก 20% ของคะแนนเต็ม</li>
+                                        <li>ส่งช้าเกิน 1 สัปดาห์: หัก 50% ของคะแนนเต็ม</li>
+                                        <li>ส่งช้าเกิน 2 สัปดาห์: ไม่รับการส่งงาน</li>
+                                    </ul>
+                                    <p class="mb-0"><strong>ข้อยกเว้น:</strong> หากมีเหตุจำเป็นต้องแจ้งผู้สอนล่วงหน้า</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item" data-category="assignment">
+                            <h2 class="accordion-header" id="headingSix">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix">
+                                    <i class="fas fa-question-circle text-primary me-2"></i>สามารถแก้ไขงานหลังจากส่งแล้วได้หรือไม่?
+                                </button>
+                            </h2>
+                            <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <p>สามารถแก้ไขงานที่ส่งแล้วได้เฉพาะก่อนถึงกำหนดส่งเท่านั้น โดยทำตามขั้นตอนต่อไปนี้:</p>
+                                    <ol>
+                                        <li>เข้าไปที่หน้า <a href="submission.html">ส่งงาน</a></li>
+                                        <li>เลือกงานที่ต้องการแก้ไข</li>
+                                        <li>กดปุ่ม "แก้ไขงาน"</li>
+                                        <li>อัปโหลดไฟล์ใหม่และยืนยันการส่ง</li>
+                                    </ol>
+                                    <p class="mb-0"><strong>หมายเหตุ:</strong> หลังจากหมดเวลาส่งแล้วไม่สามารถแก้ไขงานได้</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Exam Questions -->
+                        <div class="accordion-item" data-category="exam">
+                            <h2 class="accordion-header" id="headingSeven">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven">
+                                    <i class="fas fa-question-circle text-primary me-2"></i>สอบกลางภาคและปลายภาคครอบคลุมเนื้อหาอะไรบ้าง?
+                                </button>
+                            </h2>
+                            <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <p><strong>สอบกลางภาค:</strong> เนื้อหาตั้งแต่บทที่ 1-5 ประกอบด้วย</p>
+                                    <ul>
+                                        <li>แนวคิดระบบฐานข้อมูล</li>
+                                        <li>การออกแบบฐานข้อมูลเชิงสัมพันธ์</li>
+                                        <li>คำสั่ง SQL พื้นฐาน</li>
+                                        <li>การสร้างและจัดการตาราง</li>
+                                        <li>การสืบค้นข้อมูลเบื้องต้น</li>
+                                    </ul>
+                                    <p><strong>สอบปลายภาค:</strong> เนื้อหาตั้งแต่บทที่ 6-10 และทบทวนบางส่วนจากกลางภาค</p>
+                                    <p class="mb-0">สามารถตรวจสอบตารางสอบและเนื้อหาอย่างละเอียดได้ที่ <a href="calendar.html">ปฏิทินเรียน</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Ask Question Form -->
+                    <div class="card border-0 shadow-sm mt-5">
+                        <div class="card-header bg-primary text-white">
+                            <h3 class="mb-0"><i class="fas fa-question-circle me-2"></i>ถามคำถามเพิ่มเติม</h3>
+                        </div>
+                        <div class="card-body">
+                            <form id="askQuestionForm">
+                                <div class="mb-3">
+                                    <label for="questionCategory" class="form-label">หมวดหมู่คำถาม</label>
+                                    <select class="form-select" id="questionCategory" required>
+                                        <option value="" selected disabled>เลือกหมวดหมู่</option>
+                                        <option value="general">ทั่วไป</option>
+                                        <option value="software">ซอฟต์แวร์</option>
+                                        <option value="assignment">การส่งงาน</option>
+                                        <option value="exam">การสอบ</option>
+                                        <option value="other">อื่นๆ</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="questionTitle" class="form-label">หัวข้อคำถาม</label>
+                                    <input type="text" class="form-control" id="questionTitle" placeholder="ระบุหัวข้อคำถามของคุณ" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="questionDetail" class="form-label">รายละเอียดคำถาม</label>
+                                    <textarea class="form-control" id="questionDetail" rows="4" placeholder="อธิบายคำถามของคุณอย่างละเอียด" required></textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="questionEmail" class="form-label">อีเมลสำหรับติดต่อกลับ (ถ้ามี)</label>
+                                    <input type="email" class="form-control" id="questionEmail" placeholder="your@email.com">
+                                </div>
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-primary px-4">
+                                        <i class="fas fa-paper-plane me-2"></i>ส่งคำถาม
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-5">
+        <!-- Same as index.html -->
+    </footer>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
+    <script>
+        // FAQ Search Functionality
+        document.getElementById('faqSearch').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            const questions = document.querySelectorAll('.accordion-button');
+            
+            questions.forEach(question => {
+                const questionText = question.textContent.toLowerCase();
+                const accordionItem = question.closest('.accordion-item');
+                
+                if (questionText.includes(searchTerm)) {
+                    accordionItem.style.display = 'block';
+                } else {
+                    accordionItem.style.display = 'none';
+                }
+            });
+        });
+
+        // FAQ Category Filter
+        document.querySelectorAll('[data-category]').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const category = this.getAttribute('data-category');
+                
+                // Update active button
+                document.querySelectorAll('[data-category]').forEach(b => {
+                    b.classList.remove('active');
+                });
+                this.classList.add('active');
+                
+                // Filter questions
+                const questions = document.querySelectorAll('.accordion-item');
+                
+                questions.forEach(question => {
+                    if (category === 'all' || question.getAttribute('data-category') === category) {
+                        question.style.display = 'block';
+                    } else {
+                        question.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Form Submission
+        document.getElementById('askQuestionForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const category = document.getElementById('questionCategory').value;
+            const title = document.getElementById('questionTitle').value;
+            const detail = document.getElementById('questionDetail').value;
+            const email = document.getElementById('questionEmail').value;
+            
+            // Here you would normally send the data to a server
+            // For demo purposes, we'll just show an alert
+            alert('ส่งคำถามของคุณเรียบร้อยแล้ว! เราจะติดต่อกลับโดยเร็วที่สุด');
+            
+            // Reset form
+            this.reset();
+        });
+    </script>
+</body>
+</html>

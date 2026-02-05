@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ติดต่อผู้สอน | การจัดการฐานข้อมูลเบื้องต้น</title>
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600&family=Kanit:wght@300;400;500&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .contact-card {
+            transition: transform 0.3s ease;
+        }
+        .contact-card:hover {
+            transform: translateY(-5px);
+        }
+        .lecturer-img {
+            border: 3px solid #1a5276;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .office-hours {
+            border-left: 4px solid #1a5276;
+            background-color: rgba(26, 82, 118, 0.05);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-database me-2"></i>การจัดการฐานข้อมูลเบื้องต้น
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html"><i class="fas fa-home me-1"></i> หน้าแรก</a>
+                    </li>
+                    <!-- Other menu items -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="faq.html"><i class="fas fa-question-circle me-1"></i> FAQ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="contact.html"><i class="fas fa-user-tie me-1"></i> ผู้สอน</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h1 class="fw-bold text-primary">ผู้สอนและช่องทางติดต่อ</h1>
+                    <p class="lead">ติดต่อผู้สอนและตรวจสอบเวลาพบปะ</p>
+                    <nav aria-label="breadcrumb" class="d-flex justify-content-center">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="index.html">หน้าแรก</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">ผู้สอน</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Lecturer Profile Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="card border-0 shadow-sm">
+                        <div class="row g-0">
+                            <div class="col-md-4 text-center p-4 d-flex align-items-center justify-content-center">
+                                <img src="assets/1.png" alt="อาจารย์กิตติทัช"cls="img-fluid rounded-circle lecturer-img" width="200">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h2 class="card-title text-primary">อาจารย์กิตติทัช</h2>
+                                    <p class="text-muted">ผู้สอนประจำรายวิชาการจัดการฐานข้อมูลเบื้องต้น</p>
+                                    
+                                    <h5 class="mt-4"><i class="fas fa-graduation-cap text-primary me-2"></i>คุณวุฒิการศึกษา</h5>
+                                    <ul>
+                                        <li>ปริญญาเอก สาขาวิทยาการคอมพิวเตอร์, มหาวิทยาลัย XYZ</li>
+                                        <li>ปริญญาโท สาขาระบบสารสนเทศ, มหาวิทยาลัย ABC</li>
+                                        <li>ปริญญาตรี สาขาวิทยาการคอมพิวเตอร์, มหาวิทยาลัย DEF</li>
+                                    </ul>
+                                    
+                                    <h5 class="mt-4"><i class="fas fa-briefcase text-primary me-2"></i>ประสบการณ์การทำงาน</h5>
+                                    <ul>
+                                        <li>อาจารย์ประจำภาควิชาวิทยาการคอมพิวเตอร์, มหาวิทยาลัย XYZ (2555-ปัจจุบัน)</li>
+                                        <li>ที่ปรึกษาระบบฐานข้อมูล, บริษัท ABC (2550-2555)</li>
+                                        <li>นักพัฒนาระบบฐานข้อมูล, บริษัท DEF (2545-2550)</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Information Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="card border-0 shadow-sm h-100 contact-card">
+                        <div class="card-body text-center">
+                            <div class="icon-circle bg-primary text-white mb-4 mx-auto">
+                                <i class="fas fa-envelope fa-2x"></i>
+                            </div>
+                            <h4 class="card-title">อีเมล</h4>
+                            <p class="card-text">ติดต่อทางอีเมลสำหรับคำถามทั่วไป</p>
+                            <a href="mailto:shadowlampang@gmail.com" class="btn btn-outline-primary">shadowlampang@gmail.com</a>
+                            <div class="mt-3">
+                                <small class="text-muted">ตอบกลับภายใน 1-2 วันทำการ</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <div class="card border-0 shadow-sm h-100 contact-card">
+                        <div class="card-body text-center">
+                            <div class="icon-circle bg-success text-white mb-4 mx-auto">
+                                <i class="fab fa-line fa-2x"></i>
+                            </div>
+                            <h4 class="card-title">Line Official</h4>
+                            <p class="card-text">ติดต่อผ่าน Line สำหรับคำถามเร่งด่วน</p>
+                            <div class="mb-3">
+                                <img src="assets/line-qr.png" alt="Line QR Code" class="img-fluid" width="120">
+                            </div>
+                            <p class="mb-0">ID: <strong>@krukai_db</strong></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <div class="card border-0 shadow-sm h-100 contact-card">
+                        <div class="card-body text-center">
+                            <div class="icon-circle bg-info text-white mb-4 mx-auto">
+                                <i class="fas fa-video fa-2x"></i>
+                            </div>
+                            <h4 class="card-title">นัดหมายออนไลน์</h4>
+                            <p class="card-text">นัดหมายเพื่อปรึกษาออนไลน์</p>
+                            <a href="https://meet.google.com/mayuree-db" target="_blank" class="btn btn-outline-info mb-2">Google Meet</a>
+                            <a href="https://teams.microsoft.com/mayuree" target="_blank" class="btn btn-outline-primary">MS Teams</a>
+                            <div class="mt-3">
+                                <small class="text-muted">ต้องนัดหมายล่วงหน้า</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Office Hours Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-header bg-primary text-white">
+                            <h3 class="mb-0"><i class="fas fa-clock me-2"></i>เวลาพบปะและที่ปรึกษา</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="office-hours p-4 mb-4">
+                                <h4 class="text-primary"><i class="fas fa-door-open me-2"></i>เวลาทำการปกติ</h4>
+                                <ul class="list-unstyled">
+                                    <li class="mb-2"><strong>วันจันทร์:</strong> 13:00 - 16:00 น. (หลังเลิกเรียน)</li>
+                                    <li class="mb-2"><strong>วันพุธ:</strong> 09:00 - 12:00 น.</li>
+                                    <li><strong>วันศุกร์:</strong> 13:00 - 16:00 น.</li>
+                                </ul>
+                                <p class="mb-0"><i class="fas fa-map-marker-alt me-2"></i><strong>สถานที่:</strong> ห้อง 501 อาคารวิทยาศาสตร์</p>
+                            </div>
+                            
+                            <div class="alert alert-warning">
+                                <i class="fas fa-exclamation-triangle me-2"></i>
+                                <strong>หมายเหตุ:</strong> ในช่วงสอบหรือมีภารกิจอื่น อาจมีการเปลี่ยนแปลงเวลาพบปะ โปรดตรวจสอบประกาศในเว็บไซต์หรือติดต่อล่วงหน้า
+                            </div>
+                            
+                            <h4 class="mt-4 text-primary"><i class="fas fa-calendar-check me-2"></i>นัดหมายนอกเวลาทำการ</h4>
+                            <p>สำหรับนักศึกษาที่ไม่สะดวกในช่วงเวลาปกติ สามารถนัดหมายนอกเวลาได้โดยกรอกแบบฟอร์มด้านล่าง</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Appointment Form Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-header bg-success text-white">
+                            <h3 class="mb-0"><i class="fas fa-calendar-plus me-2"></i>แบบฟอร์มนัดหมาย</h3>
+                        </div>
+                        <div class="card-body">
+                            <form id="appointmentForm">
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="name" class="form-label">ชื่อ-นามสกุล</label>
+                                        <input type="text" class="form-control" id="name" required>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="studentId" class="form-label">รหัสนักศึกษา</label>
+                                        <input type="text" class="form-control" id="studentId" required>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">อีเมล</label>
+                                    <input type="email" class="form-control" id="email" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="phone" class="form-label">เบอร์โทรศัพท์</label>
+                                    <input type="tel" class="form-control" id="phone">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="appointmentDate" class="form-label">วันที่ต้องการนัดหมาย</label>
+                                    <input type="date" class="form-control" id="appointmentDate" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="appointmentTime" class="form-label">เวลาที่ต้องการนัดหมาย</label>
+                                    <input type="time" class="form-control" id="appointmentTime" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="contactMethod" class="form-label">วิธีติดต่อ</label>
+                                    <select class="form-select" id="contactMethod" required>
+                                        <option value="" selected disabled>เลือกวิธีติดต่อ</option>
+                                        <option value="meet">Google Meet</option>
+                                        <option value="teams">Microsoft Teams</option>
+                                        <option value="line">Line Video Call</option>
+                                        <option value="phone">โทรศัพท์</option>
+                                        <option value="office">พบปะที่สำนักงาน</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="purpose" class="form-label">วัตถุประสงค์</label>
+                                    <select class="form-select" id="purpose" required>
+                                        <option value="" selected disabled>เลือกวัตถุประสงค์</option>
+                                        <option value="consult">ปรึกษางานที่ได้รับมอบหมาย</option>
+                                        <option value="project">ปรึกษาโปรเจค</option>
+                                        <option value="exam">ปรึกษาเกี่ยวกับการสอบ</option>
+                                        <option value="other">อื่นๆ</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="details" class="form-label">รายละเอียดเพิ่มเติม</label>
+                                    <textarea class="form-control" id="details" rows="3"></textarea>
+                                </div>
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-success px-4">
+                                        <i class="fas fa-paper-plane me-2"></i>ส่งคำร้องขอ
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-5">
+        <!-- Same as index.html -->
+    </footer>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
+    <script>
+        // Form Submission
+        document.getElementById('appointmentForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Here you would normally send the data to a server
+            // For demo purposes, we'll just show an alert
+            alert('ส่งคำร้องขอนัดหมายเรียบร้อยแล้ว! เราจะติดต่อกลับเพื่อยืนยันนัดหมาย');
+            
+            // Reset form
+            this.reset();
+        });
+
+        // Set minimum date for appointment (today)
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('appointmentDate').min = today;
+    </script>
+</body>
+</html>

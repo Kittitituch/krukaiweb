@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ส่งงาน | การจัดการฐานข้อมูลเบื้องต้น</title>
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600&family=Kanit:wght@300;400;500&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .submission-card {
+            transition: all 0.3s ease;
+            border-left: 5px solid;
+        }
+        .submission-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .status-pending {
+            border-left-color: #f39c12;
+        }
+        .status-graded {
+            border-left-color: #27ae60;
+        }
+        .status-late {
+            border-left-color: #e74c3c;
+        }
+        .file-preview {
+            border: 2px dashed #dee2e6;
+            border-radius: 8px;
+            padding: 30px;
+            text-align: center;
+            background-color: #f8f9fa;
+            position: relative;
+        }
+        .file-preview img {
+            max-width: 100px;
+            margin-bottom: 15px;
+            opacity: 0.7;
+        }
+        .file-info {
+            background-color: #e9ecef;
+            border-radius: 5px;
+            padding: 10px;
+            margin-top: 15px;
+        }
+        .progress {
+            height: 10px;
+        }
+        .submission-history {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-database me-2"></i>การจัดการฐานข้อมูลเบื้องต้น
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html"><i class="fas fa-home me-1"></i> หน้าแรก</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html"><i class="fas fa-book me-1"></i> เกี่ยวกับรายวิชา</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="content.html"><i class="fas fa-file-alt me-1"></i> เนื้อหาวิชา</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="calendar.html"><i class="fas fa-calendar-alt me-1"></i> ปฏิทินเรียน</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="download.html"><i class="fas fa-download me-1"></i> ดาวน์โหลด</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="submission.html"><i class="fas fa-upload me-1"></i> ส่งงาน</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="faq.html"><i class="fas fa-question-circle me-1"></i> FAQ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html"><i class="fas fa-user-tie me-1"></i> ผู้สอน</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h1 class="fw-bold text-primary">ระบบส่งงานออนไลน์</h1>
+                    <p class="lead">ส่งงานและแบบฝึกหัดผ่านระบบออนไลน์</p>
+                    <nav aria-label="breadcrumb" class="d-flex justify-content-center">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="index.html">หน้าแรก</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">ส่งงาน</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Submission Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <!-- Assignment Submission Form -->
+                    <div class="card border-0 shadow-sm mb-5">
+                        <div class="card-header bg-primary text-white">
+                            <h3 class="mb-0"><i class="fas fa-upload me-2"></i>ส่งงานใหม่</h3>
+                        </div>
+                        <div class="card-body">
+                            <form id="assignmentForm">
+                                <div class="mb-3">
+                                    <label for="assignmentSelect" class="form-label">เลือกงานที่ต้องการส่ง</label>
+                                    <select class="form-select" id="assignmentSelect" required>
+                                        <option value="" selected disabled>เลือกงาน...</option>
+                                        <option value="1">แบบฝึกหัดที่ 1.1 - แนวคิดระบบฐานข้อมูล</option>
+                                        <option value="2">แบบฝึกหัดที่ 1.2 - องค์ประกอบระบบฐานข้อมูล</option>
+                                        <option value="3">แบบฝึกหัดที่ 2.1 - การออกแบบ ER Diagram</option>
+                                        <option value="4">แบบฝึกหัดที่ 2.2 - การแปลง ER Diagram เป็นตาราง</option>
+                                        <option value="5">แบบฝึกหัดที่ 3.1 - คำสั่ง SQL พื้นฐาน</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label class="form-label">อัปโหลดไฟล์งาน</label>
+                                    <div class="file-preview" id="filePreview">
+                                        <img src="assets/upload-icon.png" alt="Upload Icon">
+                                        <p class="mb-2">ลากไฟล์มาวางที่นี่หรือคลิกเพื่อเลือกไฟล์</p>
+                                        <small class="text-muted">รองรับไฟล์ PDF, DOCX, SQL, ZIP (ขนาดไม่เกิน 10MB)</small>
+                                        <input type="file" class="d-none" id="fileInput" accept=".pdf,.docx,.sql,.zip">
+                                        <button type="button" class="btn btn-sm btn-primary mt-3" id="selectFileBtn">
+                                            <i class="fas fa-folder-open me-2"></i>เลือกไฟล์
+                                        </button>
+                                    </div>
+                                    <div class="file-info d-none" id="fileInfo">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div>
+                                                <i class="fas fa-file me-2"></i>
+                                                <span id="fileName">filename.pdf</span>
+                                            </div>
+                                            <button type="button" class="btn btn-sm btn-outline-danger" id="removeFileBtn">
+                                                <i class="fas fa-times"></i>
+                                            </button>
+                                        </div>
+                                        <div class="progress mt-2 d-none" id="progressBar">
+                                            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="comments" class="form-label">หมายเหตุ (ถ้ามี)</label>
+                                    <textarea class="form-control" id="comments" rows="3" placeholder="ระบุหมายเหตุเพิ่มเติมเกี่ยวกับงานที่ส่ง"></textarea>
+                                </div>
+                                
+                                <div class="d-grid gap-2">
+                                    <button type="submit" class="btn btn-success" id="submitBtn">
+                                        <i class="fas fa-paper-plane me-2"></i>ส่งงาน
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    
+                    <!-- Submission Status -->
+                    <div class="card border-0 shadow-sm mb-5">
+                        <div class="card-header bg-info text-white">
+                            <h3 class="mb-0"><i class="fas fa-tasks me-2"></i>สถานะการส่งงาน</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th width="30%">ชื่องาน</th>
+                                            <th width="20%">สถานะ</th>
+                                            <th width="20%">วันที่ส่ง</th>
+                                            <th width="20%">คะแนน</th>
+                                            <th width="10%">ดู</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>แบบฝึกหัดที่ 1.1 - แนวคิดระบบฐานข้อมูล</td>
+                                            <td><span class="badge bg-success">ตรวจแล้ว</span></td>
+                                            <td>12 มิ.ย. 2566</td>
+                                            <td>8/10</td>
+                                            <td class="text-center"><button class="btn btn-sm btn-outline-primary"><i class="fas fa-eye"></i></button></td>
+                                        </tr>
+                                        <tr>
+                                            <td>แบบฝึกหัดที่ 1.2 - องค์ประกอบระบบฐานข้อมูล</td>
+                                            <td><span class="badge bg-success">ตรวจแล้ว</span></td>
+                                            <td>15 มิ.ย. 2566</td>
+                                            <td>9/10</td>
+                                            <td class="text-center"><button class="btn btn-sm btn-outline-primary"><i class="fas fa-eye"></i></button></td>
+                                        </tr>
+                                        <tr>
+                                            <td>แบบฝึกหัดที่ 2.1 - การออกแบบ ER Diagram</td>
+                                            <td><span class="badge bg-warning text-dark">กำลังตรวจ</span></td>
+                                            <td>20 มิ.ย. 2566</td>
+                                            <td>-</td>
+                                            <td class="text-center"><button class="btn btn-sm btn-outline-primary"><i class="fas fa-eye"></i></button></td>
+                                        </tr>
+                                        <tr>
+                                            <td>แบบฝึกหัดที่ 2.2 - การแปลง ER Diagram เป็นตาราง</td>
+                                            <td><span class="badge bg-secondary">ยังไม่ส่ง</span></td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td class="text-center"><button class="btn btn-sm btn-outline-secondary disabled"><i class="fas fa-eye"></i></button></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Submission History -->
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-header bg-secondary text-white">
+                            <h3 class="mb-0"><i class="fas fa-history me-2"></i>ประวัติการส่งงาน</h3>
+                        </div>
+                        <div class="card-body submission-history">
+                            <div class="list-group">
+                                <!-- Submission Item 1 -->
+                                <div class="list-group-item submission-card status-graded">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h5 class="mb-1">แบบฝึกหัดที่ 1.1 - แนวคิดระบบฐานข้อมูล</h5>
+                                        <small class="text-success">ตรวจแล้ว</small>
+                                    </div>
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <small class="text-muted">ส่งเมื่อ: 12 มิ.ย. 2566, 14:30 น.</small>
+                                        <span class="badge bg-success">8/10 คะแนน</span>
+                                    </div>
+                                    <p class="mb-1"><strong>ไฟล์:</strong> exercise1-1_john_doe.pdf</p>
+                                    <p class="mb-1"><strong>หมายเหตุจากผู้สอน:</strong> งานดีมาก แต่ควรเพิ่มตัวอย่างให้ชัดเจนยิ่งขึ้น</p>
+                                    <div class="text-end mt-2">
+                                        <button class="btn btn-sm btn-outline-primary me-2">
+                                            <i class="fas fa-download me-1"></i>ดาวน์โหลดไฟล์ที่ส่ง
+                                        </button>
+                                        <button class="btn btn-sm btn-outline-success">
+                                            <i class="fas fa-file-alt me-1"></i>ดูคำแนะนำ
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <!-- Submission Item 2 -->
+                                <div class="list-group-item submission-card status-graded">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h5 class="mb-1">แบบฝึกหัดที่ 1.2 - องค์ประกอบระบบฐานข้อมูล</h5>
+                                        <small class="text-success">ตรวจแล้ว</small>
+                                    </div>
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <small class="text-muted">ส่งเมื่อ: 15 มิ.ย. 2566, 10:15 น.</small>
+                                        <span class="badge bg-success">9/10 คะแนน</span>
+                                    </div>
+                                    <p class="mb-1"><strong>ไฟล์:</strong> exercise1-2_john_doe.docx</p>
+                                    <p class="mb-1"><strong>หมายเหตุจากผู้สอน:</strong> อธิบายได้ครบถ้วนและชัดเจน</p>
+                                    <div class="text-end mt-2">
+                                        <button class="btn btn-sm btn-outline-primary me-2">
+                                            <i class="fas fa-download me-1"></i>ดาวน์โหลดไฟล์ที่ส่ง
+                                        </button>
+                                        <button class="btn btn-sm btn-outline-success">
+                                            <i class="fas fa-file-alt me-1"></i>ดูคำแนะนำ
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <!-- Submission Item 3 -->
+                                <div class="list-group-item submission-card status-pending">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h5 class="mb-1">แบบฝึกหัดที่ 2.1 - การออกแบบ ER Diagram</h5>
+                                        <small class="text-warning">กำลังตรวจ</small>
+                                    </div>
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <small class="text-muted">ส่งเมื่อ: 20 มิ.ย. 2566, 23:58 น.</small>
+                                        <span class="badge bg-warning text-dark">รอตรวจ</span>
+                                    </div>
+                                    <p class="mb-1"><strong>ไฟล์:</strong> exercise2-1_john_doe.zip</p>
+                                    <p class="mb-1"><strong>หมายเหตุจากผู้ส่ง:</strong> ส่งใกล้กำหนดเวลาเนื่องจากปัญหาการเชื่อมต่ออินเทอร์เน็ต</p>
+                                    <div class="text-end mt-2">
+                                        <button class="btn btn-sm btn-outline-primary">
+                                            <i class="fas fa-download me-1"></i>ดาวน์โหลดไฟล์ที่ส่ง
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <!-- Submission Item 4 -->
+                                <div class="list-group-item submission-card status-late">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h5 class="mb-1">แบบฝึกหัดที่ 1.1 - แนวคิดระบบฐานข้อมูล (แก้ไข)</h5>
+                                        <small class="text-danger">ส่งสาย</small>
+                                    </div>
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <small class="text-muted">ส่งเมื่อ: 13 มิ.ย. 2566, 09:30 น.</small>
+                                        <span class="badge bg-danger">6/10 คะแนน (หักคะแนน 20%)</span>
+                                    </div>
+                                    <p class="mb-1"><strong>ไฟล์:</strong> exercise1-1_v2_john_doe.pdf</p>
+                                    <p class="mb-1"><strong>หมายเหตุจากผู้สอน:</strong> แม้จะส่งสายแต่แก้ไขงานได้ดี</p>
+                                    <div class="text-end mt-2">
+                                        <button class="btn btn-sm btn-outline-primary me-2">
+                                            <i class="fas fa-download me-1"></i>ดาวน์โหลดไฟล์ที่ส่ง
+                                        </button>
+                                        <button class="btn btn-sm btn-outline-success">
+                                            <i class="fas fa-file-alt me-1"></i>ดูคำแนะนำ
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-5">
+        <!-- Same as index.html -->
+    </footer>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // File Upload Handling
+            const fileInput = document.getElementById('fileInput');
+            const filePreview = document.getElementById('filePreview');
+            const fileInfo = document.getElementById('fileInfo');
+            const fileName = document.getElementById('fileName');
+            const selectFileBtn = document.getElementById('selectFileBtn');
+            const removeFileBtn = document.getElementById('removeFileBtn');
+            const progressBar = document.getElementById('progressBar');
+            const submitBtn = document.getElementById('submitBtn');
+            
+            // Click on file preview to open file dialog
+            filePreview.addEventListener('click', function() {
+                fileInput.click();
+            });
+            
+            // Click on select file button
+            selectFileBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                fileInput.click();
+            });
+            
+            // File selected
+            fileInput.addEventListener('change', function() {
+                if (this.files && this.files[0]) {
+                    const file = this.files[0];
+                    
+                    // Validate file type
+                    const validTypes = ['application/pdf', 
+                                      'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+                                      'application/sql',
+                                      'application/zip',
+                                      'application/x-zip-compressed'];
+                    
+                    if (!validTypes.includes(file.type) {
+                        alert('กรุณาเลือกไฟล์ประเภท PDF, DOCX, SQL หรือ ZIP เท่านั้น');
+                        return;
+                    }
+                    
+                    // Validate file size (10MB)
+                    if (file.size > 10 * 1024 * 1024) {
+                        alert('ขนาดไฟล์ต้องไม่เกิน 10MB');
+                        return;
+                    }
+                    
+                    // Display file info
+                    fileName.textContent = file.name;
+                    filePreview.classList.add('d-none');
+                    fileInfo.classList.remove('d-none');
+                }
+            });
+            
+            // Remove file
+            removeFileBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                fileInput.value = '';
+                filePreview.classList.remove('d-none');
+                fileInfo.classList.add('d-none');
+            });
+            
+            // Form submission
+            document.getElementById('assignmentForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Check if file is selected
+                if (!fileInput.files || !fileInput.files[0]) {
+                    alert('กรุณาเลือกไฟล์งานที่จะส่ง');
+                    return;
+                }
+                
+                // Disable submit button
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> กำลังส่ง...';
+                
+                // Show progress bar
+                progressBar.classList.remove('d-none');
+                const progressBarInner = progressBar.querySelector('.progress-bar');
+                
+                // Simulate file upload
+                let progress = 0;
+                const uploadInterval = setInterval(() => {
+                    progress += 10;
+                    progressBarInner.style.width = `${progress}%`;
+                    
+                    if (progress >= 100) {
+                        clearInterval(uploadInterval);
+                        
+                        // Simulate server processing
+                        setTimeout(() => {
+                            // Show success message
+                            alert('ส่งงานเรียบร้อยแล้ว! ระบบได้บันทึกการส่งงานของคุณ');
+                            
+                            // Reset form
+                            this.reset();
+                            filePreview.classList.remove('d-none');
+                            fileInfo.classList.add('d-none');
+                            progressBar.classList.add('d-none');
+                            progressBarInner.style.width = '0%';
+                            
+                            // Enable submit button
+                            submitBtn.disabled = false;
+                            submitBtn.innerHTML = '<i class="fas fa-paper-plane me-2"></i>ส่งงาน';
+                            
+                            // In a real app, you would refresh the submission history here
+                        }, 500);
+                    }
+                }, 200);
+            });
+        });
+    </script>
+</body>
+</html>

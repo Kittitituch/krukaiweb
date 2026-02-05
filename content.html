@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>เนื้อหาวิชา | การจัดการฐานข้อมูลเบื้องต้น</title>
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600&family=Kanit:wght@300;400;500&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navbar (Same as index.html) -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-database me-2"></i>การจัดการฐานข้อมูลเบื้องต้น
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html"><i class="fas fa-home me-1"></i> หน้าแรก</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html"><i class="fas fa-book me-1"></i> เกี่ยวกับรายวิชา</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="content.html"><i class="fas fa-file-alt me-1"></i> เนื้อหาวิชา</a>
+                    </li>
+                    <!-- Other menu items same as index.html -->
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h1 class="fw-bold text-primary">เนื้อหาวิชา</h1>
+                    <p class="lead">เรียนรู้เนื้อหาการจัดการฐานข้อมูลแบ่งตามสัปดาห์การศึกษา</p>
+                    <nav aria-label="breadcrumb" class="d-flex justify-content-center">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="index.html">หน้าแรก</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">เนื้อหาวิชา</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Course Content Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 mb-4">
+                    <!-- Sidebar Navigation -->
+                    <div class="card border-0 shadow-sm sticky-top" style="top: 20px;">
+                        <div class="card-header bg-primary text-white">
+                            <h5 class="mb-0"><i class="fas fa-list-ol me-2"></i>สัปดาห์ที่</h5>
+                        </div>
+                        <div class="list-group list-group-flush">
+                            <a href="#week1" class="list-group-item list-group-item-action active">สัปดาห์ที่ 1</a>
+                            <a href="#week2" class="list-group-item list-group-item-action">สัปดาห์ที่ 2</a>
+                            <a href="#week3" class="list-group-item list-group-item-action">สัปดาห์ที่ 3</a>
+                            <a href="#week4" class="list-group-item list-group-item-action">สัปดาห์ที่ 4</a>
+                            <a href="#week5" class="list-group-item list-group-item-action">สัปดาห์ที่ 5</a>
+                            <!-- Add more weeks as needed -->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    <!-- Week 1 Content -->
+                    <div class="card border-0 shadow-sm mb-4" id="week1">
+                        <div class="card-header bg-success text-white">
+                            <h3 class="mb-0">สัปดาห์ที่ 1: แนวคิดระบบฐานข้อมูล</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="alert alert-info">
+                                <i class="fas fa-calendar-alt me-2"></i>
+                                <strong>วันที่เรียน:</strong> 5 มิถุนายน 2566
+                            </div>
+                            
+                            <h4 class="mt-4 text-primary"><i class="fas fa-video me-2"></i>วิดีโอการสอน</h4>
+                            <div class="ratio ratio-16x9 mb-4">
+                                <iframe src="https://www.youtube.com/embed/example1" allowfullscreen></iframe>
+                            </div>
+                            
+                            <h4 class="mt-4 text-primary"><i class="fas fa-file-pdf me-2"></i>เอกสารประกอบการเรียน</h4>
+                            <ul class="list-group mb-4">
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <span><i class="fas fa-file-pdf text-danger me-2"></i>สไลด์บทที่ 1 - แนวคิดระบบฐานข้อมูล</span>
+                                    <a href="#" class="btn btn-sm btn-outline-primary">ดาวน์โหลด</a>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <span><i class="fas fa-file-word text-primary me-2"></i>เอกสารอ่านเพิ่มเติม - ประวัติฐานข้อมูล</span>
+                                    <a href="#" class="btn btn-sm btn-outline-primary">ดาวน์โหลด</a>
+                                </li>
+                            </ul>
+                            
+                            <h4 class="mt-4 text-primary"><i class="fas fa-tasks me-2"></i>แบบฝึกหัดท้ายบท</h4>
+                            <div class="card bg-light">
+                                <div class="card-body">
+                                    <h5>แบบฝึกหัดที่ 1.1</h5>
+                                    <p>ให้นักศึกษาอธิบายความแตกต่างระหว่างระบบแฟ้มข้อมูลกับระบบฐานข้อมูล พร้อมยกตัวอย่างประโยชน์ของระบบฐานข้อมูลในชีวิตประจำวัน</p>
+                                    
+                                    <h5>แบบฝึกหัดที่ 1.2</h5>
+                                    <p>อธิบายองค์ประกอบหลักของระบบฐานข้อมูลทั้ง 4 องค์ประกอบ พร้อมยกตัวอย่าง</p>
+                                    
+                                    <div class="alert alert-warning mt-3">
+                                        <i class="fas fa-exclamation-circle me-2"></i>
+                                        <strong>กำหนดส่ง:</strong> 12 มิถุนายน 2566 ผ่านระบบส่งงาน
+                                    </div>
+                                    
+                                    <a href="submission.html" class="btn btn-success mt-2">
+                                        <i class="fas fa-upload me-2"></i>ส่งแบบฝึกหัด
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Week 2 Content -->
+                    <div class="card border-0 shadow-sm mb-4" id="week2">
+                        <div class="card-header bg-info text-white">
+                            <h3 class="mb-0">สัปดาห์ที่ 2: การออกแบบฐานข้อมูลเชิงสัมพันธ์</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="alert alert-info">
+                                <i class="fas fa-calendar-alt me-2"></i>
+                                <strong>วันที่เรียน:</strong> 12 มิถุนายน 2566
+                            </div>
+                            
+                            <h4 class="mt-4 text-primary"><i class="fas fa-video me-2"></i>วิดีโอการสอน</h4>
+                            <div class="ratio ratio-16x9 mb-4">
+                                <iframe src="https://www.youtube.com/embed/example2" allowfullscreen></iframe>
+                            </div>
+                            
+                            <h4 class="mt-4 text-primary"><i class="fas fa-file-pdf me-2"></i>เอกสารประกอบการเรียน</h4>
+                            <ul class="list-group mb-4">
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <span><i class="fas fa-file-pdf text-danger me-2"></i>สไลด์บทที่ 2 - การออกแบบฐานข้อมูลเชิงสัมพันธ์</span>
+                                    <a href="#" class="btn btn-sm btn-outline-primary">ดาวน์โหลด</a>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <span><i class="fas fa-file-excel text-success me-2"></i>แบบฝึกหัด ER Diagram</span>
+                                    <a href="#" class="btn btn-sm btn-outline-primary">ดาวน์โหลด</a>
+                                </li>
+                            </ul>
+                            
+                            <h4 class="mt-4 text-primary"><i class="fas fa-tasks me-2"></i>แบบฝึกหัดท้ายบท</h4>
+                            <div class="card bg-light">
+                                <div class="card-body">
+                                    <h5>แบบฝึกหัดที่ 2.1</h5>
+                                    <p>จากกรณีศึกษาที่ให้ไว้ ให้วาด ER Diagram พร้อมระบุ Entity, Attribute และ Relationship</p>
+                                    
+                                    <h5>แบบฝึกหัดที่ 2.2</h5>
+                                    <p>แปลง ER Diagram จากแบบฝึกหัด 2.1 เป็นตารางเชิงสัมพันธ์</p>
+                                    
+                                    <div class="alert alert-warning mt-3">
+                                        <i class="fas fa-exclamation-circle me-2"></i>
+                                        <strong>กำหนดส่ง:</strong> 19 มิถุนายน 2566 ผ่านระบบส่งงาน
+                                    </div>
+                                    
+                                    <a href="submission.html" class="btn btn-success mt-2">
+                                        <i class="fas fa-upload me-2"></i>ส่งแบบฝึกหัด
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Week 3 Content -->
+                    <div class="card border-0 shadow-sm mb-4" id="week3">
+                        <div class="card-header bg-warning text-dark">
+                            <h3 class="mb-0">สัปดาห์ที่ 3: คำสั่ง SQL พื้นฐาน</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="alert alert-info">
+                                <i class="fas fa-calendar-alt me-2"></i>
+                                <strong>วันที่เรียน:</strong> 19 มิถุนายน 2566
+                            </div>
+                            
+                            <h4 class="mt-4 text-primary"><i class="fas fa-video me-2"></i>วิดีโอการสอน</h4>
+                            <div class="ratio ratio-16x9 mb-4">
+                                <iframe src="https://www.youtube.com/embed/example3" allowfullscreen></iframe>
+                            </div>
+                            
+                            <h4 class="mt-4 text-primary"><i class="fas fa-file-pdf me-2"></i>เอกสารประกอบการเรียน</h4>
+                            <ul class="list-group mb-4">
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <span><i class="fas fa-file-pdf text-danger me-2"></i>สไลด์บทที่ 3 - คำสั่ง SQL พื้นฐาน</span>
+                                    <a href="#" class="btn btn-sm btn-outline-primary">ดาวน์โหลด</a>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <span><i class="fas fa-database text-primary me-2"></i>ไฟล์ฐานข้อมูลตัวอย่าง</span>
+                                    <a href="#" class="btn btn-sm btn-outline-primary">ดาวน์โหลด</a>
+                                </li>
+                            </ul>
+                            
+                            <h4 class="mt-4 text-primary"><i class="fas fa-tasks me-2"></i>แบบฝึกหัดท้ายบท</h4>
+                            <div class="card bg-light">
+                                <div class="card-body">
+                                    <h5>แบบฝึกหัดที่ 3.1</h5>
+                                    <p>เขียนคำสั่ง SQL เพื่อสร้างตารางตามโครงสร้างที่กำหนด</p>
+                                    
+                                    <h5>แบบฝึกหัดที่ 3.2</h5>
+                                    <p>เขียนคำสั่ง SELECT เพื่อดึงข้อมูลตามเงื่อนไขที่กำหนด</p>
+                                    
+                                    <div class="alert alert-warning mt-3">
+                                        <i class="fas fa-exclamation-circle me-2"></i>
+                                        <strong>กำหนดส่ง:</strong> 26 มิถุนายน 2566 ผ่านระบบส่งงาน
+                                    </div>
+                                    
+                                    <a href="submission.html" class="btn btn-success mt-2">
+                                        <i class="fas fa-upload me-2"></i>ส่งแบบฝึกหัด
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Add more weeks as needed -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (Same as index.html) -->
+    <footer class="bg-dark text-white py-5">
+        <!-- Footer content same as index.html -->
+    </footer>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

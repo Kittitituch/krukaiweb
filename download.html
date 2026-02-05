@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ดาวน์โหลดเอกสาร | การจัดการฐานข้อมูลเบื้องต้น</title>
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600&family=Kanit:wght@300;400;500&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-database me-2"></i>การจัดการฐานข้อมูลเบื้องต้น
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html"><i class="fas fa-home me-1"></i> หน้าแรก</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html"><i class="fas fa-book me-1"></i> เกี่ยวกับรายวิชา</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="content.html"><i class="fas fa-file-alt me-1"></i> เนื้อหาวิชา</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="calendar.html"><i class="fas fa-calendar-alt me-1"></i> ปฏิทินเรียน</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="download.html"><i class="fas fa-download me-1"></i> ดาวน์โหลด</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="submission.html"><i class="fas fa-upload me-1"></i> ส่งงาน</a>
+                    </li>
+                    <!-- Other menu items -->
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h1 class="fw-bold text-primary">ดาวน์โหลดเอกสาร</h1>
+                    <p class="lead">เอกสารประกอบการเรียนและไฟล์ตัวอย่าง</p>
+                    <nav aria-label="breadcrumb" class="d-flex justify-content-center">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="index.html">หน้าแรก</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">ดาวน์โหลด</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Download Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 mb-4">
+                    <!-- Sidebar Navigation -->
+                    <div class="card border-0 shadow-sm sticky-top" style="top: 20px;">
+                        <div class="card-header bg-primary text-white">
+                            <h5 class="mb-0"><i class="fas fa-filter me-2"></i>หมวดหมู่</h5>
+                        </div>
+                        <div class="list-group list-group-flush">
+                            <a href="#lecture-slides" class="list-group-item list-group-item-action active">สไลด์การสอน</a>
+                            <a href="#sample-database" class="list-group-item list-group-item-action">ไฟล์ฐานข้อมูลตัวอย่าง</a>
+                            <a href="#exercise-files" class="list-group-item list-group-item-action">ไฟล์แบบฝึกหัด</a>
+                            <a href="#software-tools" class="list-group-item list-group-item-action">ซอฟต์แวร์และเครื่องมือ</a>
+                            <a href="#additional-resources" class="list-group-item list-group-item-action">แหล่งเรียนรู้เพิ่มเติม</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    <!-- Lecture Slides -->
+                    <div class="card border-0 shadow-sm mb-4" id="lecture-slides">
+                        <div class="card-header bg-success text-white">
+                            <h3 class="mb-0"><i class="fas fa-file-powerpoint me-2"></i>สไลด์การสอน</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th width="30%">ชื่อไฟล์</th>
+                                            <th width="20%">ประเภท</th>
+                                            <th width="20%">ขนาด</th>
+                                            <th width="20%">วันที่อัปเดต</th>
+                                            <th width="10%">ดาวน์โหลด</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>บทที่ 1 - แนวคิดระบบฐานข้อมูล</td>
+                                            <td><span class="badge bg-danger">PDF</span></td>
+                                            <td>2.5 MB</td>
+                                            <td>1 มิ.ย. 2566</td>
+                                            <td class="text-center"><a href="#" class="btn btn-sm btn-outline-primary"><i class="fas fa-download"></i></a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>บทที่ 2 - การออกแบบฐานข้อมูลเชิงสัมพันธ์</td>
+                                            <td><span class="badge bg-danger">PDF</span></td>
+                                            <td>3.1 MB</td>
+                                            <td>8 มิ.ย. 2566</td>
+                                            <td class="text-center"><a href="#" class="btn btn-sm btn-outline-primary"><i class="fas fa-download"></i></a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>บทที่ 3 - คำสั่ง SQL พื้นฐาน</td>
+                                            <td><span class="badge bg-danger">PDF</span></td>
+                                            <td>4.2 MB</td>
+                                            <td>15 มิ.ย. 2566</td>
+                                            <td class="text-center"><a href="#" class="btn btn-sm btn-outline-primary"><i class="fas fa-download"></i></a></td>
+                                        </tr>
+                                        <!-- Add more files as needed -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sample Database Files -->
+                    <div class="card border-0 shadow-sm mb-4" id="sample-database">
+                        <div class="card-header bg-info text-white">
+                            <h3 class="mb-0"><i class="fas fa-database me-2"></i>ไฟล์ฐานข้อมูลตัวอย่าง</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="alert alert-warning">
+                                <i class="fas fa-exclamation-triangle me-2"></i>
+                                ไฟล์เหล่านี้สามารถนำไปใช้กับโปรแกรม MySQL หรือ SQLite เพื่อฝึกปฏิบัติตามบทเรียน
+                            </div>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <div class="card h-100">
+                                        <div class="card-body">
+                                            <div class="d-flex">
+                                                <div class="flex-shrink-0">
+                                                    <i class="fas fa-database text-primary fa-3x"></i>
+                                                </div>
+                                                <div class="flex-grow-1 ms-3">
+                                                    <h5 class="card-title">ฐานข้อมูลร้านหนังสือ</h5>
+                                                    <p class="card-text">ไฟล์ SQL สำหรับสร้างฐานข้อมูลร้านหนังสือตามตัวอย่างในบทที่ 2</p>
+                                                    <div class="d-flex justify-content-between align-items-center">
+                                                        <small class="text-muted">2.1 MB</small>
+                                                        <a href="#" class="btn btn-sm btn-outline-primary">ดาวน์โหลด</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card h-100">
+                                        <div class="card-body">
+                                            <div class="d-flex">
+                                                <div class="flex-shrink-0">
+                                                    <i class="fas fa-database text-success fa-3x"></i>
+                                                </div>
+                                                <div class="flex-grow-1 ms-3">
+                                                    <h5 class="card-title">ฐานข้อมูลนักศึกษา</h5>
+                                                    <p class="card-text">ตัวอย่างฐานข้อมูลระบบทะเบียนนักศึกษา สำหรับฝึกคำสั่ง SQL</p>
+                                                    <div class="d-flex justify-content-between align-items-center">
+                                                        <small class="text-muted">1.8 MB</small>
+                                                        <a href="#" class="btn btn-sm btn-outline-primary">ดาวน์โหลด</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Exercise Files -->
+                    <div class="card border-0 shadow-sm mb-4" id="exercise-files">
+                        <div class="card-header bg-warning text-dark">
+                            <h3 class="mb-0"><i class="fas fa-tasks me-2"></i>ไฟล์แบบฝึกหัด</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="accordion" id="exerciseAccordion">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingOne">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                                            แบบฝึกหัดบทที่ 1
+                                        </button>
+                                    </h2>
+                                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#exerciseAccordion">
+                                        <div class="accordion-body">
+                                            <ul class="list-group list-group-flush">
+                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                    <span>แบบฝึกหัดที่ 1.1 - แนวคิดระบบฐานข้อมูล</span>
+                                                    <div>
+                                                        <a href="#" class="btn btn-sm btn-outline-primary me-2"><i class="fas fa-file-word me-1"></i>DOCX</a>
+                                                        <a href="#" class="btn btn-sm btn-outline-danger"><i class="fas fa-file-pdf me-1"></i>PDF</a>
+                                                    </div>
+                                                </li>
+                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                    <span>แบบฝึกหัดที่ 1.2 - องค์ประกอบระบบฐานข้อมูล</span>
+                                                    <div>
+                                                        <a href="#" class="btn btn-sm btn-outline-primary me-2"><i class="fas fa-file-word me-1"></i>DOCX</a>
+                                                        <a href="#" class="btn btn-sm btn-outline-danger"><i class="fas fa-file-pdf me-1"></i>PDF</a>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingTwo">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+                                            แบบฝึกหัดบทที่ 2
+                                        </button>
+                                    </h2>
+                                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#exerciseAccordion">
+                                        <div class="accordion-body">
+                                            <ul class="list-group list-group-flush">
+                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                    <span>แบบฝึกหัดที่ 2.1 - การออกแบบ ER Diagram</span>
+                                                    <div>
+                                                        <a href="#" class="btn btn-sm btn-outline-primary me-2"><i class="fas fa-file-word me-1"></i>DOCX</a>
+                                                        <a href="#" class="btn btn-sm btn-outline-danger"><i class="fas fa-file-pdf me-1"></i>PDF</a>
+                                                    </div>
+                                                </li>
+                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                    <span>แบบฝึกหัดที่ 2.2 - การแปลง ER Diagram เป็นตาราง</span>
+                                                    <div>
+                                                        <a href="#" class="btn btn-sm btn-outline-primary me-2"><i class="fas fa-file-word me-1"></i>DOCX</a>
+                                                        <a href="#" class="btn btn-sm btn-outline-danger"><i class="fas fa-file-pdf me-1"></i>PDF</a>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Add more exercises as needed -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Software Tools -->
+                    <div class="card border-0 shadow-sm mb-4" id="software-tools">
+                        <div class="card-header bg-danger text-white">
+                            <h3 class="mb-0"><i class="fas fa-download me-2"></i>ซอฟต์แวร์และเครื่องมือ</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="row g-3">
+                                <div class="col-md-4">
+                                    <div class="card h-100">
+                                        <div class="card-body text-center">
+                                            <i class="fab fa-mysql fa-4x text-primary mb-3"></i>
+                                            <h5 class="card-title">MySQL Community Server</h5>
+                                            <p class="card-text">ระบบจัดการฐานข้อมูลเชิงสัมพันธ์</p>
+                                            <a href="https://dev.mysql.com/downloads/" target="_blank" class="btn btn-primary">ดาวน์โหลด</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card h-100">
+                                        <div class="card-body text-center">
+                                            <i class="fas fa-database fa-4x text-success mb-3"></i>
+                                            <h5 class="card-title">SQLite</h5>
+                                            <p class="card-text">ระบบฐานข้อมูลแบบไฟล์</p>
+                                            <a href="https://www.sqlite.org/download.html" target="_blank" class="btn btn-success">ดาวน์โหลด</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card h-100">
+                                        <div class="card-body text-center">
+                                            <i class="fas fa-tools fa-4x text-info mb-3"></i>
+                                            <h5 class="card-title">MySQL Workbench</h5>
+                                            <p class="card-text">เครื่องมือจัดการฐานข้อมูล MySQL</p>
+                                            <a href="https://dev.mysql.com/downloads/workbench/" target="_blank" class="btn btn-info">ดาวน์โหลด</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Additional Resources -->
+                    <div class="card border-0 shadow-sm" id="additional-resources">
+                        <div class="card-header bg-secondary text-white">
+                            <h3 class="mb-0"><i class="fas fa-external-link-alt me-2"></i>แหล่งเรียนรู้เพิ่มเติม</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="list-group">
+                                <a href="https://www.w3schools.com/sql/" target="_blank" class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h5 class="mb-1">W3Schools SQL Tutorial</h5>
+                                        <small class="text-muted">ภาษาอังกฤษ</small>
+                                    </div>
+                                    <p class="mb-1">เรียนรู้คำสั่ง SQL พื้นฐานผ่านตัวอย่างแบบอินเทอร์แอคทีฟ</p>
+                                </a>
+                                <a href="https://www.sqlteaching.com/" target="_blank" class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h5 class="mb-1">SQL Teaching</h5>
+                                        <small class="text-muted">ภาษาอังกฤษ</small>
+                                    </div>
+                                    <p class="mb-1">เว็บสอน SQL แบบเป็นขั้นตอน พร้อมแบบฝึกหัด</p>
+                                </a>
+                                <a href="https://www.db-book.com/" target="_blank" class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h5 class="mb-1">Database System Concepts</h5>
+                                        <small class="text-muted">ภาษาอังกฤษ</small>
+                                    </div>
+                                    <p class="mb-1">หนังสือเรียนระบบฐานข้อมูลระดับมหาวิทยาลัย</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-5">
+        <!-- Same as index.html -->
+    </footer>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
